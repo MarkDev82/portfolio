@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://portfolio.markelicedo.site/sitemap.xml
