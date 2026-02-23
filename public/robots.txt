@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Host: markelicedo.site
-Sitemap: https://markelicedo.site/sitemap.xml
+Host: portfolio.markelicedo.site
+Sitemap: https://portfolio.markelicedo.site/sitemap.xml
