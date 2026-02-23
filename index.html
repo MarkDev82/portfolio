@@ -4,21 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Markel Icedo - Full Stack Developer | Portfolio</title>
-    <meta name="description" content="Markel Icedo - Full Stack Developer especializado en automatizaci&oacute;n, desarrollo de bots y aplicaciones web modernas. Portfolio profesional con proyectos reales." />
-    <meta name="keywords" content="full stack developer, desarrollo web, automatizaci&oacute;n, bots discord, telegram, react, javascript, python, lua, portfolio" />
+    <title>Markel Icedo | Portfolio Oficial - Full Stack Developer</title>
+    <meta name="description" content="Markel Icedo - Portfolio oficial. Full Stack Developer especializado en automatizaci&oacute;n, desarrollo de bots y aplicaciones web modernas con proyectos reales." />
+    <meta name="keywords" content="markel icedo, markel icedo portfolio, markel icedo developer, full stack developer, desarrollo web, automatizaci&oacute;n, bots discord, telegram, react, javascript, python, lua, portfolio" />
     <meta name="author" content="Markel Icedo" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <!-- Google Search Console site verification (pega aquí tu código cuando registres el dominio) -->
-    <!-- <meta name="google-site-verification" content="TU_CODIGO_AQUI" /> -->
+    <meta name="google-site-verification" content="REEMPLAZAR_CON_CODIGO_DE_SEARCH_CONSOLE" />
     <meta name="language" content="Spanish" />
+    <meta name="geo.region" content="ES-BI" />
+    <meta name="geo.placename" content="Getxo" />
     <link rel="canonical" href="https://markelicedo.site/" />
+    <link rel="alternate" hreflang="es-ES" href="https://markelicedo.site/" />
+    <link rel="alternate" hreflang="x-default" href="https://markelicedo.site/" />
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://markelicedo.site/" />
-    <meta property="og:title" content="Markel Icedo - Full Stack Developer | Portfolio" />
+    <meta property="og:title" content="Markel Icedo | Portfolio Oficial - Full Stack Developer" />
     <meta property="og:description" content="Full Stack Developer especializado en automatizaci&oacute;n, desarrollo de bots y aplicaciones web modernas. Explora mi portfolio profesional." />
     <meta property="og:image" content="https://markelicedo.site/images/FotoPersonal.png" />
     <meta property="og:image:width" content="821" />
@@ -29,7 +32,7 @@
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://markelicedo.site/" />
-    <meta property="twitter:title" content="Markel Icedo - Full Stack Developer | Portfolio" />
+    <meta property="twitter:title" content="Markel Icedo | Portfolio Oficial - Full Stack Developer" />
     <meta property="twitter:description" content="Full Stack Developer especializado en automatizaci&oacute;n, desarrollo de bots y aplicaciones web modernas." />
     <meta property="twitter:image" content="https://markelicedo.site/images/FotoPersonal.png" />
 
@@ -39,31 +42,68 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Markel Icedo",
-      "jobTitle": "Full Stack Developer",
-      "description": "Full Stack Developer especializado en automatización y desarrollo de bots",
-      "url": "https://markelicedo.site/",
-      "email": "icedo.markel@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Getxo",
-        "addressRegion": "Bizkaia",
-        "addressCountry": "España"
-      },
-      "sameAs": [
-        "https://github.com/MarkDev82",
-        "https://www.linkedin.com/in/markel-icedo-1010a5389/"
-      ],
-      "knowsAbout": [
-        "JavaScript",
-        "Python",
-        "React",
-        "Node.js",
-        "Discord Bots",
-        "Telegram Bots",
-        "Web Development",
-        "Automation"
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://markelicedo.site/#person",
+          "name": "Markel Icedo",
+          "alternateName": "markel icedo",
+          "jobTitle": "Full Stack Developer",
+          "description": "Full Stack Developer especializado en automatización y desarrollo de bots",
+          "url": "https://markelicedo.site/",
+          "email": "icedo.markel@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Getxo",
+            "addressRegion": "Bizkaia",
+            "addressCountry": "España"
+          },
+          "sameAs": [
+            "https://github.com/MarkDev82",
+            "https://www.linkedin.com/in/markel-icedo-1010a5389/"
+          ],
+          "knowsAbout": [
+            "JavaScript",
+            "Python",
+            "React",
+            "Node.js",
+            "Discord Bots",
+            "Telegram Bots",
+            "Web Development",
+            "Automation"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://markelicedo.site/#website",
+          "url": "https://markelicedo.site/",
+          "name": "Markel Icedo",
+          "inLanguage": "es-ES",
+          "publisher": {
+            "@id": "https://markelicedo.site/#person"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://markelicedo.site/#webpage",
+          "url": "https://markelicedo.site/",
+          "name": "Markel Icedo | Portfolio Oficial - Full Stack Developer",
+          "isPartOf": {
+            "@id": "https://markelicedo.site/#website"
+          },
+          "about": {
+            "@id": "https://markelicedo.site/#person"
+          },
+          "inLanguage": "es-ES"
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://markelicedo.site/#profile",
+          "mainEntity": {
+            "@id": "https://markelicedo.site/#person"
+          },
+          "url": "https://markelicedo.site/"
+        }
       ]
     }
     </script>
