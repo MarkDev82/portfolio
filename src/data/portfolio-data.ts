@@ -107,14 +107,7 @@ export const portfolioData: PortfolioData = {
     ],
     miscelaneo: {
       platforms: ["Discord", "Telegram"],
-      specialties: [
-        "Stresser para redes privadas escrito en Rust para probar la resistencia de aplicaciones web",
-        "Probador y creador de contraseñas seguras",
-        "Modelo de IA entrenado localmente para tareas cotidianas basado en conversaciones",
-        "Aplicaciones Python para automatizar tareas escolares (conversión de bases, ASCII)",
-        "Keylogger con encriptación SHA para protección contra amenazas",
-        "Analizador de ejecutables con funcionalidad sandbox"
-      ],
+      specialties: [],
       frameworks: ["discord.py", "discord.js", "Telethon", "python-telegram-bot"]
     },
     devops: [
