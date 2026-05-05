@@ -59,6 +59,10 @@ export const portfolioData: PortfolioData = {
         }
       ],
       longTerm: "Máster en Ciberseguridad o Grado Superior en Ciberseguridad (2027-2028)"
+    },
+    goals: {
+      professional: "",
+      objective: "Aprender continuamente, especializarme en backend y ciberseguridad, y trabajar en proyectos donde el código importe."
     }
   },
 

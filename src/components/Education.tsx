@@ -1,14 +1,9 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   GraduationCap, 
   Award, 
   Star, 
-  Target, 
-  BookOpen, 
-  Clock,
-  CheckCircle2,
-  Zap
+  CheckCircle2
 } from 'lucide-react';
 import { Card } from './shared/Card';
 import { AnimatedSection } from './shared/AnimatedSection';
@@ -169,23 +164,12 @@ export const Education = () => {
 
         {/* Goals Section */}
         {education.goals && (
-          <AnimatedSection delay={0.5} className="mt-16">
-            <Card className="p-8 bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
-              <div className="text-center">
-                <Target className="w-12 h-12 mx-auto mb-4 text-indigo-200" />
-                <h3 className="text-2xl font-bold mb-4">Mi Visión Profesional</h3>
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h4 className="font-semibold mb-2 text-indigo-100">Objetivo Profesional</h4>
-                    <p className="text-indigo-100">{education.goals.professional}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2 text-indigo-100">Meta Principal</h4>
-                    <p className="text-indigo-100">{education.goals.objective}</p>
-                  </div>
-                </div>
-              </div>
-            </Card>
+          <AnimatedSection delay={0.3} className="mt-12">
+            <div className="max-w-2xl mx-auto text-center">
+              <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+                {education.goals.objective}
+              </p>
+            </div>
           </AnimatedSection>
         )}
       </div>

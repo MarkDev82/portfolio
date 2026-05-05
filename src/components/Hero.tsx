@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Github, Mail, Download } from 'lucide-react';
 import { Button } from './shared/Button';
 import { useTypingEffect } from '../hooks/useTypingEffect';
 import { portfolioData } from '../data/portfolio-data';
@@ -10,7 +9,12 @@ export const Hero = () => {
   const [showElements, setShowElements] = useState(false);
   
   const { displayText: typedTitle, isComplete } = useTypingEffect(
-    personal.title,
+    [
+      "Desarrollador Web",
+      "Automatización con Python",
+      "Desarrollo de Bots",
+      "Estudiante de ASIR"
+    ],
     80,
     1000
   );
