@@ -149,26 +149,6 @@ export const Hero = () => {
             </Button>
           </motion.div>
 
-          {/* Quick Stats */}
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: showElements ? 1 : 0, y: showElements ? 0 : 20 }}
-            transition={{ duration: 0.8, delay: 2.3 }}
-          >
-            <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1">3+</div>
-              <div className="text-gray-600 dark:text-gray-400 text-sm">Años de Experiencia</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-1">12+</div>
-              <div className="text-gray-600 dark:text-gray-400 text-sm">Bots Desarrollados</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-1">8K+</div>
-              <div className="text-gray-600 dark:text-gray-400 text-sm">Usuarios Servidos</div>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

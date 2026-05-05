@@ -120,7 +120,7 @@ export const Projects = () => {
           <div className="mb-6">
             <h4 className="font-medium text-gray-900 dark:text-white mb-2">Características principales:</h4>
             <div className="space-y-1">
-              {project.features.slice(0, 3).map((feature, i) => (
+              {project.features.map((feature, i) => (
                 <motion.div
                   key={i}
                   className="flex items-start space-x-2 text-sm"
@@ -133,11 +133,6 @@ export const Projects = () => {
                   <span className="text-gray-600 dark:text-gray-300">{feature}</span>
                 </motion.div>
               ))}
-              {project.features.length > 3 && (
-                <div className="text-xs text-gray-500 dark:text-gray-400 ml-6">
-                  +{project.features.length - 3} características más
-                </div>
-              )}
             </div>
           </div>
 
@@ -164,39 +159,8 @@ export const Projects = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="section-title">Proyectos Destacados</h2>
-          <p className="section-subtitle">Proyectos web desarrollados que demuestran mis habilidades técnicas y creatividad</p>
+          <p className="section-subtitle">Proyectos personales y académicos en los que he trabajado.</p>
         </div>
-
-        {/* Project Overview */}
-        <AnimatedSection className="mb-12">
-          <Card className="p-8 bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-800 dark:to-blue-900/20 border-gray-200 dark:border-gray-700">
-            <div className="text-center">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-                Portfolio Diverso de Proyectos Web
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-6">
-                Portfolio diverso de proyectos web desarrollados principalmente para aplicaciones 
-                académicas y casos de uso reales. Experiencia en crear soluciones funcionales 
-                desde cero, incluyendo sistemas de gestión, herramientas de automatización, 
-                y aplicaciones empresariales completas.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1">{projects.length}</div>
-                  <div className="text-gray-600 dark:text-gray-400 text-sm">Proyectos Completados</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-1">100%</div>
-                  <div className="text-gray-600 dark:text-gray-400 text-sm">Éxito en Entrega</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-1">5+</div>
-                  <div className="text-gray-600 dark:text-gray-400 text-sm">Tecnologías</div>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </AnimatedSection>
 
         {/* Filter Buttons */}
         <AnimatedSection className="mb-8">

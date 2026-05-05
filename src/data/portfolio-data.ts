@@ -9,10 +9,10 @@ export const portfolioData: PortfolioData = {
     email: "icedo.markel@gmail.com",
     github: "https://github.com/MarkDev82",
     linkedin: "https://www.linkedin.com/in/markel-icedo-1010a5389/",
-    title: "Full Stack Developer | Automation Specialist | Bot Developer",
+    title: "Desarrollador Web | Automatización | Bots",
     hero: {
-      description: "Estudiante de desarrollo de administracion de sistemas informaticos en red, con pasión por la tecnología y la innovación. Especializado en crear soluciones técnicas complejas, desde desarrollo web full-stack hasta automatización avanzada.",
-      tagline: "Mi enfoque combina código limpio, diseño moderno y funcionalidad robusta para transformar ideas en productos digitales impactantes."
+      description: "Estudiante de Administración de Sistemas Informáticos en Red. Desarrollo proyectos web, scripts de automatización y bots como complemento a la formación, profundizando en cada tecnología hasta entender cómo funciona por dentro.",
+      tagline: "Me interesa el código claro, mantenible y que resuelve problemas reales."
     }
   },
 
@@ -38,8 +38,8 @@ export const portfolioData: PortfolioData = {
       ],
       planned: [
         {
-          name: "freeCodeCamp Responsive Web Design & JavaScript",
-          year: "2025",
+          name: "Oracle Certified Associate, Java SE 8 Programmer",
+          year: "2025-2026",
           category: "web"
         },
         {
@@ -82,7 +82,9 @@ export const portfolioData: PortfolioData = {
       { name: "HTML5", level: "advanced" },
       { name: "CSS3", level: "advanced" },
       { name: "React", level: "intermediate" },
-      { name: "Tailwind CSS", level: "intermediate" }
+      { name: "Tailwind CSS", level: "intermediate" },
+      { name: "TypeScript", level: "basic" },
+      { name: "Angular", level: "basic" }
     ],
     backend: [
       { name: "Node.js", level: "basic" },
@@ -107,7 +109,11 @@ export const portfolioData: PortfolioData = {
     ],
     miscelaneo: {
       platforms: ["Discord", "Telegram"],
-      specialties: [],
+      specialties: [
+        "Stack React: React + TypeScript + Tailwind + Node.js/Express + MongoDB",
+        "Stack Angular: Angular + TypeScript + Angular Material + Node.js + PostgreSQL",
+        "Stack Kotlin: Kotlin + Android SDK + Gradle + Room"
+      ],
       frameworks: ["discord.py", "discord.js", "Telethon", "python-telegram-bot"]
     },
     devops: [
@@ -374,24 +380,6 @@ export const portfolioData: PortfolioData = {
             blocked: "200+ intentos de phishing bloqueados",
             reduction: "90% reducción en incidentes de seguridad"
           }
-        }
-      ],
-      generalAchievements: [
-        {
-          metric: "12+ bots desarrollados",
-          description: "Desde cero"
-        },
-        {
-          metric: "8,000+ usuarios totales",
-          description: "Servidos activamente"
-        },
-        {
-          metric: "15+ comunidades",
-          description: "Gestionadas activamente"
-        },
-        {
-          metric: "99.8% uptime",
-          description: "Promedio en todos los bots en producción"
         }
       ]
     }

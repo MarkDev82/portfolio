@@ -42,11 +42,11 @@ export const Skills = () => {
       description: 'Lenguajes de programación que domino'
     },
     specialties: {
-      title: 'Especialidades',
+      title: 'Stacks',
       icon: Target,
       color: 'purple',
       skills: skills.miscelaneo.specialties,
-      description: 'Áreas de especialización técnica'
+      description: 'Combinaciones de tecnologías que uso con frecuencia'
     }
   };
 
@@ -194,7 +194,7 @@ export const Skills = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="section-title">Habilidades Técnicas</h2>
-          <p className="section-subtitle">Tecnologías, lenguajes y herramientas que utilizo para crear soluciones innovadoras</p>
+          <p className="section-subtitle">Lenguajes, frameworks y herramientas con los que he trabajado.</p>
         </div>
 
         {/* Category Tabs */}
@@ -282,24 +282,6 @@ export const Skills = () => {
           </motion.div>
         </AnimatedSection>
 
-        {/* Skills Summary */}
-        <AnimatedSection delay={0.5} className="mt-16">
-          <Card className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border-blue-200 dark:border-blue-700">
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Enfoque de Desarrollo
-              </h3>
-              <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 max-w-3xl mx-auto">
-                Mi stack tecnológico se centra en crear soluciones completas y escalables. 
-                Combino tecnologías modernas de frontend con backends robustos, siempre 
-                priorizando la calidad del código, la seguridad y la experiencia del usuario.
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-
-              </div>
-            </div>
-          </Card>
-        </AnimatedSection>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Mail, MapPin, Heart, Code, Coffee, Linkedin } from 'lucide-react';
+import { Github, Mail, MapPin, Linkedin } from 'lucide-react';
 import { portfolioData } from '../data/portfolio-data';
 
 export const Footer = () => {
@@ -77,8 +77,7 @@ export const Footer = () => {
                 </span>
               </button>
               <p className="text-gray-300 dark:text-gray-400 mb-4 max-w-md">
-                Full Stack Developer especializado en automatización y desarrollo de bots. 
-                Creando soluciones técnicas innovadoras que marquen la diferencia.
+                Estudiante de ASIR. Desarrollo web, automatización y bots.
               </p>
               <div className="flex items-center space-x-2 text-gray-400 dark:text-gray-500 text-sm">
                 <MapPin className="w-4 h-4" />
@@ -163,22 +162,6 @@ export const Footer = () => {
               viewport={{ once: true }}
             >
               <span>© {currentYear} {personal.name}. Todos los derechos reservados.</span>
-            </motion.div>
-            
-            <motion.div
-              className="flex items-center space-x-2 text-gray-400 dark:text-gray-500 text-sm"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <span>Hecho con</span>
-              <Heart className="w-4 h-4 text-red-500" />
-              <span>y</span>
-              <Coffee className="w-4 h-4 text-yellow-600 dark:text-yellow-500" />
-              <span>usando</span>
-              <Code className="w-4 h-4 text-blue-400 dark:text-blue-300" />
-              <span>React + Tailwind</span>
             </motion.div>
           </div>
         </div>
