@@ -1,26 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Code, 
   Layers, 
-  CheckCircle, 
-  Filter,
   Globe,
-  Smartphone,
-  Database
+  Smartphone
 } from 'lucide-react';
 import { Card } from './shared/Card';
 import { AnimatedSection } from './shared/AnimatedSection';
 import { Button } from './shared/Button';
+import { StarField } from './shared/StarField';
+import { CrossPattern } from './shared/CrossPattern';
 import { portfolioData } from '../data/portfolio-data';
 
 export const Projects = () => {
   const { projects } = portfolioData;
   const [filter, setFilter] = useState('all');
-  const [visibleCount, setVisibleCount] = useState(3);
+  const [visibleCount, setVisibleCount] = useState(4);
 
   useEffect(() => {
-    setVisibleCount(3);
+    setVisibleCount(4);
   }, [filter]);
 
   const categories = [
@@ -30,22 +29,10 @@ export const Projects = () => {
     { key: 'miscelaneo', label: 'Misceláneo', icon: Code },
   ];
 
-  const complexityColors = {
-    basic: {
-      bg: 'bg-green-100',
-      text: 'text-green-700',
-      label: 'Básico'
-    },
-    intermediate: {
-      bg: 'bg-yellow-100',
-      text: 'text-yellow-700',
-      label: 'Intermedio'
-    },
-    advanced: {
-      bg: 'bg-red-100',
-      text: 'text-red-700',
-      label: 'Avanzado'
-    }
+  const complexityLabels: Record<string, string> = {
+    basic: 'Básico',
+    intermediate: 'Intermedio',
+    advanced: 'Avanzado'
   };
 
   const filteredProjects = filter === 'all' 
@@ -54,117 +41,152 @@ export const Projects = () => {
 
   const displayedProjects = filteredProjects.slice(0, visibleCount);
 
-  const ProjectCard = ({ project, index }) => {
+  const ProjectCard = ({ project, index }: { project: any; index: number }) => {
     return (
-      <Card delay={index * 0.1} className="overflow-hidden group">
-        {/* Project Image/Icon Placeholder */}
-        <div className="h-48 bg-gradient-to-br from-blue-400 via-purple-500 to-blue-600 relative overflow-hidden">
-          <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
-            <div className="text-center text-white">
-              <Code className="w-12 h-12 mx-auto mb-2 opacity-80" />
-              <div className="text-sm font-medium opacity-90">
-                {project.technologies.slice(0, 2).join(' + ')}
-                {project.technologies.length > 2 && ' +'}
-              </div>
-            </div>
-          </div>
-          
-          {/* Hover Overlay */}
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6"
-            initial={{ opacity: 0 }}
-            whileHover={{ opacity: 1 }}
-          >
-            <div className="text-white">
-              <p className="text-sm font-medium">Tecnologías utilizadas:</p>
-              <div className="flex flex-wrap gap-1 mt-1">
-                {project.technologies.map((tech, i) => (
-                  <span key={i} className="text-xs bg-white/20 dark:bg-gray-700/50 backdrop-blur-sm px-2 py-1 rounded">
-                    {tech}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -16 }}
+        transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
+        layout
+      >
+        <Card className="overflow-hidden group h-full" hover={false}>
+          {/* Project Header Bar */}
+          <motion.div 
+            className="h-[3px] bg-border group-hover:bg-white transition-colors duration-500"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.6, delay: index * 0.08 }}
+            viewport={{ once: true }}
+            style={{ transformOrigin: 'left' }}
+          />
+
+          <div className="p-7">
+            {/* Project Header */}
+            <div className="flex items-start justify-between mb-5">
+              <div>
+                <div className="flex items-center gap-2.5 mb-3">
+                  <span className="font-mono text-[10px] text-neutral-700 tracking-wider">
+                    {String(project.id).padStart(2, '0')}
                   </span>
+                  <span className="w-5 h-px bg-neutral-800" />
+                  <span className="font-mono text-[9px] text-neutral-600 uppercase tracking-[0.25em]">
+                    {complexityLabels[project.complexity]}
+                  </span>
+                </div>
+                <h3 className="font-display text-xl font-semibold text-white group-hover:text-neutral-200 transition-colors duration-300 tracking-tight">
+                  {project.title}
+                </h3>
+              </div>
+              <span className={`font-mono text-[9px] uppercase tracking-[0.25em] px-2.5 py-1 border ${
+                project.status === 'completed' 
+                  ? 'border-neutral-800 text-neutral-500' 
+                  : 'border-neutral-600 text-neutral-400'
+              }`}>
+                {project.status === 'completed' ? 'Done' : 'WIP'}
+              </span>
+            </div>
+
+            {/* Description */}
+            <p className="text-neutral-400 text-sm mb-6 leading-[1.7] line-clamp-3">
+              {project.description}
+            </p>
+
+            {/* Features */}
+            <div className="mb-6">
+              <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-4">Features</h4>
+              <div className="space-y-2">
+                {project.features.map((feature: string, i: number) => (
+                  <motion.div
+                    key={i}
+                    className="flex items-start gap-2.5"
+                    initial={{ opacity: 0, x: -6 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 + i * 0.05, duration: 0.4 }}
+                    viewport={{ once: true }}
+                  >
+                    <span className="text-neutral-700 mt-1 text-xs">—</span>
+                    <span className="text-neutral-400 text-sm leading-[1.7]">{feature}</span>
+                  </motion.div>
                 ))}
               </div>
             </div>
-          </motion.div>
-        </div>
 
-        <div className="p-6">
-          {/* Project Header */}
-          <div className="flex items-start justify-between mb-4">
-            <div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                {project.title}
-              </h3>
-              <div className="flex items-center space-x-2">
-                <span className={`px-2 py-1 rounded-full text-xs font-medium ${complexityColors[project.complexity].bg} ${complexityColors[project.complexity].text}`}>
-                  {complexityColors[project.complexity].label}
-                </span>
-                <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                  project.status === 'completed' 
-                    ? 'bg-green-100 text-green-700' 
-                    : 'bg-blue-100 text-blue-700'
-                }`}>
-                  <CheckCircle className="w-3 h-3 inline mr-1" />
-                  {project.status === 'completed' ? 'Completado' : 'En Progreso'}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Description */}
-          <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
-            {project.description}
-          </p>
-
-          {/* Features */}
-          <div className="mb-6">
-            <h4 className="font-medium text-gray-900 dark:text-white mb-2">Características principales:</h4>
-            <div className="space-y-1">
-              {project.features.map((feature, i) => (
-                <motion.div
-                  key={i}
-                  className="flex items-start space-x-2 text-sm"
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-600 dark:text-gray-300">{feature}</span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Technology Tags */}
-          <div className="mb-4">
+            {/* Technology Tags */}
             <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech, i) => (
-                <span
+              {project.technologies.map((tech: string, i: number) => (
+                <motion.span
                   key={i}
-                  className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full font-medium"
+                  className="px-2.5 py-1 bg-surface-3 border border-border text-neutral-500 text-[10px] font-mono uppercase tracking-[0.2em]"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3 + i * 0.03, duration: 0.3 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05 }}
                 >
                   {tech}
-                </span>
+                </motion.span>
               ))}
             </div>
           </div>
-        </div>
-      </Card>
+        </Card>
+      </motion.div>
     );
   };
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="section-title">Proyectos Destacados</h2>
-          <p className="section-subtitle">Proyectos personales y académicos en los que he trabajado.</p>
-        </div>
+    <section id="projects" className="relative py-28 sm:py-36 bg-black overflow-hidden">
+      {/* Subtle star field */}
+      <StarField count={40} />
+      
+      {/* Cross pattern background */}
+      <CrossPattern spacing={100} size={10} opacity={0.025} />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        {/* Section header */}
+        <AnimatedSection>
+          <div className="mb-20 sm:mb-24">
+            <motion.span 
+              className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-600 block mb-5"
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              03 / Proyectos
+            </motion.span>
+            <motion.h2 
+              className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              Proyectos Destacados
+            </motion.h2>
+            <motion.p 
+              className="mt-5 text-neutral-500 text-base max-w-xl leading-[1.7]"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              Proyectos personales y académicos en los que he trabajado.
+            </motion.p>
+            <motion.div 
+              className="mt-6 w-20 h-px bg-neutral-800"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              style={{ transformOrigin: 'left' }}
+            />
+          </div>
+        </AnimatedSection>
 
         {/* Filter Buttons */}
-        <AnimatedSection className="mb-8">
-          <div className="flex flex-wrap justify-center gap-3">
+        <AnimatedSection className="mb-12">
+          <div className="flex flex-wrap gap-1 border-b border-border pb-px">
             {categories.map((category) => {
               const IconComponent = category.icon;
               const isActive = filter === category.key;
@@ -173,20 +195,28 @@ export const Projects = () => {
                 <motion.button
                   key={category.key}
                   onClick={() => setFilter(category.key)}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                  className={`relative flex items-center gap-2.5 px-5 py-3.5 font-mono text-[10px] uppercase tracking-[0.25em] transition-colors duration-300 ${
                     isActive
-                      ? 'bg-blue-500 text-white shadow-lg'
-                      : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 border border-gray-200 dark:border-gray-700'
+                      ? 'text-white'
+                      : 'text-neutral-600 hover:text-neutral-300'
                   }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ y: -1 }}
+                  whileTap={{ y: 0 }}
+                  transition={{ duration: 0.2 }}
                 >
-                  <IconComponent className="w-4 h-4" />
+                  <IconComponent className="w-3.5 h-3.5" />
                   <span>{category.label}</span>
                   {category.key === 'all' && (
-                    <span className="ml-1 text-xs bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full">
-                      {projects.length}
+                    <span className="ml-1.5 text-[9px] text-neutral-700">
+                      ({projects.length})
                     </span>
+                  )}
+                  {isActive && (
+                    <motion.div
+                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-white"
+                      layoutId="activeFilter"
+                      transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                    />
                   )}
                 </motion.button>
               );
@@ -195,38 +225,36 @@ export const Projects = () => {
         </AnimatedSection>
 
         {/* Projects Grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          layout
-        >
-          {displayedProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              layout
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <ProjectCard project={project} index={index} />
-            </motion.div>
-          ))}
-        </motion.div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={filter}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-5"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            layout
+          >
+            {displayedProjects.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
+            ))}
+          </motion.div>
+        </AnimatePresence>
 
         {/* Load More Button */}
         {filteredProjects.length > visibleCount && (
           <motion.div
-            className="text-center mt-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
+            className="mt-12"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.4 }}
           >
             <Button
-              onClick={() => setVisibleCount(prev => prev + 3)}
+              onClick={() => setVisibleCount(prev => prev + 4)}
               variant="secondary"
-              size="lg"
+              size="md"
             >
-              Ver Más Proyectos
+              Ver Más Proyectos ({filteredProjects.length - visibleCount} restantes)
             </Button>
           </motion.div>
         )}

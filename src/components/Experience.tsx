@@ -1,15 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Calendar, 
-  MapPin, 
-  Trophy, 
-  Users, 
-  Code, 
-  TrendingUp,
   Shield,
   Bot,
-  Server,
   Activity,
   AlertTriangle,
   ChevronDown,
@@ -21,9 +14,9 @@ import { portfolioData } from '../data/portfolio-data';
 
 export const Experience = () => {
   const { experience } = portfolioData;
-  const [expandedJobs, setExpandedJobs] = useState([]);
+  const [expandedJobs, setExpandedJobs] = useState<number[]>([]);
 
-  const ExperienceCard = ({ job, index, isLast }) => {
+  const ExperienceCard = ({ job, index, isLast }: { job: any; index: number; isLast: boolean }) => {
     const isProject = job.type === 'project';
     const isOngoing = job.type === 'ongoing';
     const isExpanded = expandedJobs.includes(job.id);
@@ -37,115 +30,150 @@ export const Experience = () => {
     };
 
     return (
-      <div className={`relative ${!isLast ? 'mb-16' : ''}`}>
+      <motion.div 
+        className={`relative ${!isLast ? 'mb-14' : ''}`}
+        initial={{ opacity: 0, x: 16 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: index * 0.12, ease: [0.25, 0.1, 0.25, 1] }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        {/* Timeline line */}
+        {!isLast && (
+          <motion.div 
+            className="absolute left-[7px] top-12 bottom-0 w-px bg-neutral-800"
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 + index * 0.12 }}
+            viewport={{ once: true }}
+            style={{ transformOrigin: 'top' }}
+          />
+        )}
         
-        {/* Timeline Dot */}
-        <div className="absolute left-4 top-8 w-4 h-4 bg-white dark:bg-gray-800 border-4 border-blue-500 rounded-full transform -translate-x-1/2 z-10" />
-        
-        <motion.div
-          className="ml-12"
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: index * 0.2 }}
+        {/* Timeline dot */}
+        <motion.div 
+          className="absolute left-0 top-7 w-[15px] h-[15px] border-2 border-neutral-700 bg-black z-10"
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 0.4, delay: index * 0.12 }}
           viewport={{ once: true }}
-        >
-          <Card className="p-6">
+        />
+        
+        <div className="ml-10">
+          <Card className="p-7" hover={false}>
             {/* Job Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-5">
               <div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">{job.title}</h3>
-                <p className="text-blue-600 font-medium">{job.company}</p>
-              </div>
-              <div className="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400 mt-2 sm:mt-0">
-                <div className="flex items-center space-x-1">
-                  <Calendar className="w-4 h-4" />
-                  <span>{job.period}</span>
-                </div>
-                {isOngoing && (
-                  <span className="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">
-                    Activo
+                <div className="flex items-center gap-2.5 mb-2">
+                  <span className="font-mono text-[10px] text-neutral-700 tracking-wider">
+                    {String(index + 1).padStart(2, '0')}
                   </span>
+                  <span className="w-5 h-px bg-neutral-800" />
+                  <span className="font-mono text-[9px] text-neutral-600 uppercase tracking-[0.25em]">
+                    {job.period}
+                  </span>
+                </div>
+                <h3 className="font-display text-xl font-semibold text-white mb-1.5 tracking-tight">{job.title}</h3>
+                <p className="text-neutral-500 text-sm font-mono">{job.company}</p>
+              </div>
+              <div className="flex items-center gap-3 mt-4 sm:mt-0">
+                {isOngoing && (
+                  <motion.span 
+                    className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-400 border border-neutral-700 px-2.5 py-1"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: 0.3 }}
+                  >
+                    Activo
+                  </motion.span>
                 )}
-                <button
+                <motion.button
                   onClick={toggleExpanded}
-                  className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
+                  className="p-2 border border-border hover:border-neutral-600 transition-colors duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   aria-label={isExpanded ? 'Contraer' : 'Expandir'}
                 >
-                  {isExpanded ? (
-                    <ChevronUp className="w-4 h-4 text-gray-500" />
-                  ) : (
-                    <ChevronDown className="w-4 h-4 text-gray-500" />
-                  )}
-                </button>
+                  <motion.div
+                    animate={{ rotate: isExpanded ? 180 : 0 }}
+                    transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                  >
+                    <ChevronDown className="w-3.5 h-3.5 text-neutral-500" />
+                  </motion.div>
+                </motion.button>
               </div>
             </div>
 
             {/* Expandable Content */}
             <motion.div
               initial={false}
-              animate={{ height: isExpanded ? 'auto' : 0, opacity: isExpanded ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
+              animate={{ 
+                height: isExpanded ? 'auto' : 0, 
+                opacity: isExpanded ? 1 : 0 
+              }}
+              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
               className="overflow-hidden"
             >
               {/* Job Description */}
-              <p className="text-gray-600 dark:text-gray-300 mb-6">{job.description}</p>
+              <p className="text-neutral-400 text-sm mb-7 leading-[1.7]">{job.description}</p>
 
               {/* Technologies */}
-              <div className="mb-6">
-                <h4 className="font-medium text-gray-900 dark:text-white mb-3">Tecnologías utilizadas:</h4>
+              <div className="mb-7">
+                <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-4">Tecnologías</h4>
                 <div className="flex flex-wrap gap-2">
-                  {job.technologies.map((tech, i) => (
-                    <span
+                  {job.technologies.map((tech: string, i: number) => (
+                    <motion.span
                       key={i}
-                      className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full font-medium"
+                      className="px-2.5 py-1 bg-surface-3 border border-border text-neutral-500 text-[10px] font-mono uppercase tracking-[0.2em]"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: i * 0.04, duration: 0.3 }}
+                      whileHover={{ scale: 1.05 }}
                     >
                       {tech}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </div>
 
             {/* Job-specific Content */}
             {isProject ? (
-              // FiveM Project
               <>
                 {/* Responsibilities */}
-                <div className="mb-6">
-                  <h4 className="font-medium text-gray-900 dark:text-white mb-3">Responsabilidades principales:</h4>
-                  <div className="space-y-2">
-                    {job.responsibilities.map((responsibility, i) => (
+                <div className="mb-7">
+                  <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-4">Responsabilidades</h4>
+                  <div className="space-y-2.5">
+                    {job.responsibilities.map((responsibility: string, i: number) => (
                       <motion.div
                         key={i}
-                        className="flex items-start space-x-2"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.1 }}
-                        viewport={{ once: true }}
+                        className="flex items-start gap-3"
+                        initial={{ opacity: 0, x: -8 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 + i * 0.05, duration: 0.4 }}
                       >
-                        <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
-                        <span className="text-gray-600 dark:text-gray-300 text-sm">{responsibility}</span>
+                        <span className="text-neutral-700 mt-1 text-xs">—</span>
+                        <span className="text-neutral-400 text-sm leading-[1.7]">{responsibility}</span>
                       </motion.div>
                     ))}
                   </div>
                 </div>
 
                 {/* Achievements */}
-                <div className="mb-6">
-                  <h4 className="font-medium text-gray-900 dark:text-white mb-3">Logros destacados:</h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {job.achievements.map((achievement, i) => (
+                <div className="mb-7">
+                  <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-4">Logros</h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {job.achievements.map((achievement: any, i: number) => (
                       <motion.div
                         key={i}
-                        className="p-4 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-lg border border-green-200 dark:border-green-700"
+                        className="p-5 bg-surface-3 border border-border"
                         initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: i * 0.1 }}
-                        viewport={{ once: true }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 + i * 0.08, duration: 0.4 }}
+                        whileHover={{ y: -2 }}
                       >
-                        <div className="text-lg font-bold text-green-600 mb-1">
+                        <div className="font-display text-xl font-bold text-white mb-1.5 tracking-tight">
                           {achievement.metric}
                         </div>
-                        <div className="text-gray-600 dark:text-gray-300 text-sm">
+                        <div className="text-neutral-500 text-xs leading-[1.6]">
                           {achievement.description}
                         </div>
                       </motion.div>
@@ -154,14 +182,13 @@ export const Experience = () => {
                 </div>
               </>
             ) : (
-              // Bot Development
               <>
                 {/* Bot Categories */}
-                <div className="mb-6">
-                  <h4 className="font-medium text-gray-900 dark:text-white mb-3">Tipos de bots desarrollados:</h4>
-                  <div className="space-y-4">
-                    {job.categories.map((category, i) => {
-                      const icons = {
+                <div className="mb-7">
+                  <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-4">Tipos de bots</h4>
+                  <div className="space-y-3">
+                    {job.categories.map((category: any, i: number) => {
+                      const icons: Record<string, any> = {
                         'Bot de Moderación Avanzada': Shield,
                         'Bot de Utilidad Multifuncional': Bot,
                         'Bot de Estadísticas y Analytics': Activity,
@@ -172,22 +199,19 @@ export const Experience = () => {
                       return (
                         <motion.div
                           key={i}
-                          initial={{ opacity: 0, x: 20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: i * 0.1 }}
-                          viewport={{ once: true }}
+                          className="p-5 bg-surface-3 border border-border"
+                          initial={{ opacity: 0, x: -8 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
+                          whileHover={{ x: 4 }}
                         >
-                          <Card className="p-4">
-                            <div className="flex items-center space-x-3">
-                              <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                                <IconComponent className="w-5 h-5 text-blue-500" />
-                              </div>
-                              <div>
-                                <h5 className="font-medium text-gray-900 dark:text-white">{category.name}</h5>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">{category.platform}</p>
-                              </div>
+                          <div className="flex items-center gap-3.5">
+                            <IconComponent className="w-4 h-4 text-neutral-600" />
+                            <div>
+                              <h5 className="font-medium text-white text-sm">{category.name}</h5>
+                              <p className="text-neutral-600 text-xs font-mono mt-0.5">{category.platform}</p>
                             </div>
-                          </Card>
+                          </div>
                         </motion.div>
                       );
                     })}
@@ -197,32 +221,66 @@ export const Experience = () => {
             )}
             </motion.div>
           </Card>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     );
   };
 
   return (
-    <section id="experience" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-800 dark:to-blue-900/20 transition-colors duration-300">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="section-title">Experiencia Profesional</h2>
-          <p className="section-subtitle">Proyectos remunerados y colaboraciones en desarrollo.</p>
-        </div>
-
-        {/* Experience Timeline */}
+    <section id="experience" className="py-28 sm:py-36 bg-surface-1">
+      <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+        {/* Section header */}
         <AnimatedSection>
-          <div className="relative">
-            {experience.map((job, index) => (
-              <ExperienceCard
-                key={job.id}
-                job={job}
-                index={index}
-                isLast={index === experience.length - 1}
-              />
-            ))}
+          <div className="mb-20 sm:mb-24">
+            <motion.span 
+              className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-600 block mb-5"
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              04 / Experiencia
+            </motion.span>
+            <motion.h2 
+              className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              Experiencia Profesional
+            </motion.h2>
+            <motion.p 
+              className="mt-5 text-neutral-500 text-base max-w-xl leading-[1.7]"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              Proyectos remunerados y colaboraciones en desarrollo.
+            </motion.p>
+            <motion.div 
+              className="mt-6 w-20 h-px bg-neutral-800"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              style={{ transformOrigin: 'left' }}
+            />
           </div>
         </AnimatedSection>
+
+        {/* Experience Timeline */}
+        <div className="relative">
+          {experience.map((job, index) => (
+            <ExperienceCard
+              key={job.id}
+              job={job}
+              index={index}
+              isLast={index === experience.length - 1}
+            />
+          ))}
+        </div>
 
       </div>
     </section>

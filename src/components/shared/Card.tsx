@@ -16,17 +16,16 @@ export const Card = ({
   delay = 0,
   ...props 
 }: CardProps) => {
-  const baseClasses = 'bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden transition-colors duration-300';
-  const hoverClasses = hover ? 'transition-all duration-300 hover:shadow-xl dark:hover:shadow-2xl dark:hover:shadow-gray-900/50 hover:scale-105 hover:-translate-y-1' : '';
+  const baseClasses = 'bg-surface-2 border border-border overflow-hidden';
+  const hoverClasses = hover ? 'transition-all duration-300 hover:border-neutral-700 hover:bg-surface-3' : '';
   
   return (
     <motion.div
       className={`${baseClasses} ${hoverClasses} ${className}`}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay }}
-      viewport={{ once: true, amount: 0.3 }}
-      whileHover={hover ? { scale: 1.02, y: -4 } : {}}
+      transition={{ duration: 0.4, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      viewport={{ once: true, amount: 0.1 }}
       {...props}
     >
       {children}

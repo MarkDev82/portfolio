@@ -17,14 +17,14 @@ export const AnimatedSection: React.FC<AnimatedSectionProps> = ({
 }) => {
   const { ref, isVisible } = useScrollAnimation();
 
-  const variants = {
-    up: { x: 0, y: 30 },
-    down: { x: 0, y: -30 },
-    left: { x: 30, y: 0 },
-    right: { x: -30, y: 0 }
+  const offsets = {
+    up: { x: 0, y: 16 },
+    down: { x: 0, y: -16 },
+    left: { x: 16, y: 0 },
+    right: { x: -16, y: 0 }
   };
 
-  const currentVariant = variants[direction];
+  const offset = offsets[direction];
 
   return (
     <motion.div
@@ -32,18 +32,18 @@ export const AnimatedSection: React.FC<AnimatedSectionProps> = ({
       className={className}
       initial={{ 
         opacity: 0,
-        x: currentVariant.x,
-        y: currentVariant.y
+        x: offset.x,
+        y: offset.y
       }}
       animate={{ 
         opacity: isVisible ? 1 : 0,
-        x: isVisible ? 0 : currentVariant.x,
-        y: isVisible ? 0 : currentVariant.y
+        x: isVisible ? 0 : offset.x,
+        y: isVisible ? 0 : offset.y
       }}
       transition={{
         duration: 0.6,
         delay,
-        ease: 'easeOut'
+        ease: [0.25, 0.1, 0.25, 1]
       }}
     >
       {children}
