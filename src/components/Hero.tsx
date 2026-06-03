@@ -12,10 +12,9 @@ export const Hero = () => {
   
   const { displayText: typedTitle } = useTypingEffect(
     [
-      "Desarrollador Web",
-      "Automatización con Python",
-      "Desarrollo de Bots",
-      "Estudiante de ASIR"
+      "Full-Stack Developer",
+      "DevOps & Monitoring",
+      "Autonomous Learner",
     ],
     80,
     1000

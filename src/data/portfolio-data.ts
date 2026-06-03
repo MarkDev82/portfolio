@@ -82,50 +82,37 @@ export const portfolioData: PortfolioData = {
 
   // Technical Skills
   skills: {
-    frontend: [
-      { name: "HTML5", level: "advanced" },
-      { name: "CSS3", level: "advanced" },
-      { name: "React", level: "intermediate" },
-      { name: "Tailwind CSS", level: "intermediate" },
-      { name: "TypeScript", level: "basic" },
-      { name: "Angular", level: "basic" }
-    ],
+    frontend: [],
     backend: [
       { name: "Node.js", level: "basic" },
       { name: "Express.js", level: "basic" },
-      { name: "Python (Flask)", level: "basic" },
-      { name: "PHP (Laravel)", level: "basic" }
+      { name: "FastAPI (Python)", level: "intermediate" },
+      { name: "Java", level: "intermediate" }
     ],
     languages: [
       { name: "JavaScript", level: "intermediate" },
       { name: "Python", level: "intermediate" },
       { name: "Lua", level: "advanced" },
       { name: "SQL", level: "intermediate" },
-      { name: "C++", level: "basic" },
       { name: "Rust", level: "intermediate" },
-      { name: "Kotlin", level: "basic" },
-      { name: "Gradle", level: "basic" }
+      { name: "Go", level: "basic" },
+      { name: "Kotlin", level: "basic" }
     ],
-    databases: [
-      { name: "MySQL", level: "intermediate" },
-      { name: "PostgreSQL", level: "intermediate" },
-      { name: "MongoDB", level: "basic" }
-    ],
+    databases: [],
     miscelaneo: {
-      platforms: ["Discord", "Telegram"],
-      specialties: [
-        "Stack React: React + TypeScript + Tailwind + Node.js/Express + MongoDB",
-        "Stack Angular: Angular + TypeScript + Angular Material + Node.js + PostgreSQL",
-        "Stack Kotlin: Kotlin + Android SDK + Gradle + Room"
-      ],
-      frameworks: ["discord.py", "discord.js", "Telethon", "python-telegram-bot"]
+      platforms: [],
+      specialties: [],
+      frameworks: []
     },
     devops: [
       { name: "Git", level: "intermediate" },
       { name: "GitHub", level: "intermediate" },
-      { name: "Docker", level: "basic" },
+      { name: "Docker", level: "intermediate" },
+      { name: "Kubernetes", level: "basic" },
+      { name: "Prometheus", level: "basic" },
+      { name: "Grafana", level: "basic" },
+      { name: "Loki", level: "basic" },
       { name: "Vercel", level: "intermediate" },
-      { name: "Heroku", level: "basic" },
       { name: "VPS", level: "intermediate" }
     ]
   },
