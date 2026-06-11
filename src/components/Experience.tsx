@@ -235,7 +235,7 @@ export const Experience = () => {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              04 / Experiencia
+              03 / Experiencia
             </motion.span>
             <motion.h2 
               className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight"
