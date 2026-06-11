@@ -218,7 +218,7 @@ export const Experience = () => {
   const { experience } = portfolioData;
 
   return (
-    <section id="experience" className="py-28 sm:py-36 bg-surface-1">
+    <section id="experience" className="py-28 sm:py-36 bg-black">
       <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section header */}
         <AnimatedSection>
