@@ -37,7 +37,7 @@ function App() {
             <div id="skills">
               <Skills />
             </div>
-            <SectionDivider />
+            <SectionDivider className="bg-surface-1" />
             <div id="experience">
               <Experience />
             </div>
