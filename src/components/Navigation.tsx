@@ -136,6 +136,17 @@ export const Navigation = () => {
                 <Github className="w-[15px] h-[15px]" />
               </motion.a>
               <motion.a
+                href={personal.linkedin || '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-neutral-600 hover:text-white transition-colors duration-300"
+                aria-label="LinkedIn"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Linkedin className="w-[15px] h-[15px]" />
+              </motion.a>
+              <motion.a
                 href={`mailto:${personal.email}`}
                 className="p-2 text-neutral-600 hover:text-white transition-colors duration-300"
                 aria-label="Email"
