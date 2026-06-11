@@ -38,12 +38,12 @@ function App() {
               <Skills />
             </div>
             <SectionDivider />
-            <div id="projects">
-              <Projects />
-            </div>
-            <SectionDivider />
             <div id="experience">
               <Experience />
+            </div>
+            <SectionDivider />
+            <div id="projects">
+              <Projects />
             </div>
             <SectionDivider />
             <div id="contact">
