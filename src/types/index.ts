@@ -98,7 +98,7 @@ export interface Experience {
   title: string;
   company: string;
   period: string;
-  type: 'project' | 'ongoing';
+  type: 'project' | 'ongoing' | 'past' | 'internship';
   description: string;
   responsibilities?: string[];
   technologies: string[];

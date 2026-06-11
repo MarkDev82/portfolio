@@ -270,11 +270,40 @@ export const portfolioData: PortfolioData = {
   // Work Experience
   experience: [
     {
+      id: 3,
+      title: "Software Developer Intern",
+      company: "GERTEK · Prácticas",
+      period: "Abril 2026 – Mayo 2026",
+      type: "internship",
+      description: "Prácticas de desarrollo en empresa de software, trabajando de forma autónoma en proyectos reales de infraestructura y backend. Dos líneas principales de trabajo: monitorización de sistemas y desarrollo de pipelines de procesamiento de datos.",
+      technologies: ["Docker", "Kubernetes (k3s)", "Helm", "Prometheus", "Grafana", "Loki", "Promtail", "Alertmanager", "Apache Pulsar", "RabbitMQ", "Java", "Python", "FastAPI", "Oracle DB", "JDBC", "HikariCP", "Maven"],
+      responsibilities: [
+        "Diseño y despliegue de stacks de monitorización completos (métricas, logs, dashboards) en entornos Docker y Kubernetes",
+        "Desarrollo de Pulsar Functions en Java para validación, transformación e inserción atómica de datos en Oracle DB",
+        "Desarrollo de API REST con FastAPI (Python) para consulta de datos sobre Oracle Cloud",
+        "Resolución de problemas de infraestructura: permisos, redes Docker, compatibilidad de drivers, rate limits"
+      ],
+      achievements: [
+        {
+          metric: "Monitorización en Docker y k3s",
+          description: "Stack de monitorización operativo en dos entornos distintos"
+        },
+        {
+          metric: "Pipeline sobre Apache Pulsar",
+          description: "Pipeline de ingesta de datos end-to-end funcional sobre Apache Pulsar 3.2.4"
+        },
+        {
+          metric: "Despliegue en producción",
+          description: "Endpoint de consulta desplegado en producción con conexión a Oracle Cloud"
+        }
+      ]
+    },
+    {
       id: 1,
       title: "Lead Developer & Full Stack Developer",
       company: "Servidor FiveM - Proyecto Privado",
-      period: "Marzo 2024 - Diciembre 2024",
-      type: "project",
+      period: "Marzo 2025 - Septiembre 2025",
+      type: "past",
       description: "Desarrollo integral de un servidor de roleplay en FiveM (GTA V), gestionando todos los aspectos técnicos, desde la programación de sistemas personalizados hasta la administración de recursos económicos y personal.",
       responsibilities: [
         "Liderazgo técnico completo del proyecto de desarrollo",
@@ -305,8 +334,8 @@ export const portfolioData: PortfolioData = {
       id: 2,
       title: "Bot Developer",
       company: "Múltiples proyectos privados y comunitarios",
-      period: "2023 - Presente",
-      type: "ongoing",
+      period: "Enero 2025 - Diciembre 2025",
+      type: "past",
       technologies: ["Python", "JavaScript", "discord.py", "discord.js", "Telethon", "MongoDB", "PostgreSQL"],
       description: "Desarrollo especializado de bots multifuncionales para plataformas de mensajería, enfocados en automatización, moderación, y mejora de experiencia de usuario en comunidades online.",
       categories: [

@@ -17,7 +17,6 @@ export const Experience = () => {
   const [expandedJobs, setExpandedJobs] = useState<number[]>([]);
 
   const ExperienceCard = ({ job, index, isLast }: { job: any; index: number; isLast: boolean }) => {
-    const isProject = job.type === 'project';
     const isOngoing = job.type === 'ongoing';
     const isExpanded = expandedJobs.includes(job.id);
 
@@ -136,88 +135,85 @@ export const Experience = () => {
               </div>
 
             {/* Job-specific Content */}
-            {isProject ? (
-              <>
-                {/* Responsibilities */}
-                <div className="mb-7">
-                  <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-4">Responsabilidades</h4>
-                  <div className="space-y-2.5">
-                    {job.responsibilities.map((responsibility: string, i: number) => (
-                      <motion.div
-                        key={i}
-                        className="flex items-start gap-3"
-                        initial={{ opacity: 0, x: -8 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1 + i * 0.05, duration: 0.4 }}
-                      >
-                        <span className="text-neutral-700 mt-1 text-xs">—</span>
-                        <span className="text-neutral-400 text-sm leading-[1.7]">{responsibility}</span>
-                      </motion.div>
-                    ))}
-                  </div>
+            {job.responsibilities && job.responsibilities.length > 0 && (
+              <div className="mb-7">
+                <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-4">Responsabilidades</h4>
+                <div className="space-y-2.5">
+                  {job.responsibilities.map((responsibility: string, i: number) => (
+                    <motion.div
+                      key={i}
+                      className="flex items-start gap-3"
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 + i * 0.05, duration: 0.4 }}
+                    >
+                      <span className="text-neutral-700 mt-1 text-xs">—</span>
+                      <span className="text-neutral-400 text-sm leading-[1.7]">{responsibility}</span>
+                    </motion.div>
+                  ))}
                 </div>
+              </div>
+            )}
 
-                {/* Achievements */}
-                <div className="mb-7">
-                  <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-4">Logros</h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    {job.achievements.map((achievement: any, i: number) => (
+            {job.achievements && job.achievements.length > 0 && (
+              <div className="mb-7">
+                <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-4">Logros</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  {job.achievements.map((achievement: any, i: number) => (
+                    <motion.div
+                      key={i}
+                      className="p-5 bg-surface-3 border border-border"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 + i * 0.08, duration: 0.4 }}
+                      whileHover={{ y: -2 }}
+                    >
+                      <div className="font-display text-xl font-bold text-white mb-1.5 tracking-tight">
+                        {achievement.metric}
+                      </div>
+                      <div className="text-neutral-500 text-xs leading-[1.6]">
+                        {achievement.description}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {job.categories && job.categories.length > 0 && (
+              <div className="mb-7">
+                <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-4">Tipos de bots</h4>
+                <div className="space-y-3">
+                  {job.categories.map((category: any, i: number) => {
+                    const icons: Record<string, any> = {
+                      'Bot de Moderación Avanzada': Shield,
+                      'Bot de Utilidad Multifuncional': Bot,
+                      'Bot de Estadísticas y Analytics': Activity,
+                      'Sistema de Detección de Amenazas': AlertTriangle
+                    };
+                    const IconComponent = icons[category.name] || Bot;
+
+                    return (
                       <motion.div
                         key={i}
                         className="p-5 bg-surface-3 border border-border"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 + i * 0.08, duration: 0.4 }}
-                        whileHover={{ y: -2 }}
+                        initial={{ opacity: 0, x: -8 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
+                        whileHover={{ x: 4 }}
                       >
-                        <div className="font-display text-xl font-bold text-white mb-1.5 tracking-tight">
-                          {achievement.metric}
-                        </div>
-                        <div className="text-neutral-500 text-xs leading-[1.6]">
-                          {achievement.description}
+                        <div className="flex items-center gap-3.5">
+                          <IconComponent className="w-4 h-4 text-neutral-600" />
+                          <div>
+                            <h5 className="font-medium text-white text-sm">{category.name}</h5>
+                            <p className="text-neutral-600 text-xs font-mono mt-0.5">{category.platform}</p>
+                          </div>
                         </div>
                       </motion.div>
-                    ))}
-                  </div>
+                    );
+                  })}
                 </div>
-              </>
-            ) : (
-              <>
-                {/* Bot Categories */}
-                <div className="mb-7">
-                  <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-4">Tipos de bots</h4>
-                  <div className="space-y-3">
-                    {job.categories.map((category: any, i: number) => {
-                      const icons: Record<string, any> = {
-                        'Bot de Moderación Avanzada': Shield,
-                        'Bot de Utilidad Multifuncional': Bot,
-                        'Bot de Estadísticas y Analytics': Activity,
-                        'Sistema de Detección de Amenazas': AlertTriangle
-                      };
-                      const IconComponent = icons[category.name] || Bot;
-
-                      return (
-                        <motion.div
-                          key={i}
-                          className="p-5 bg-surface-3 border border-border"
-                          initial={{ opacity: 0, x: -8 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
-                          whileHover={{ x: 4 }}
-                        >
-                          <div className="flex items-center gap-3.5">
-                            <IconComponent className="w-4 h-4 text-neutral-600" />
-                            <div>
-                              <h5 className="font-medium text-white text-sm">{category.name}</h5>
-                              <p className="text-neutral-600 text-xs font-mono mt-0.5">{category.platform}</p>
-                            </div>
-                          </div>
-                        </motion.div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </>
+              </div>
             )}
             </motion.div>
           </Card>
