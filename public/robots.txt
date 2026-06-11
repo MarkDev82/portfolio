@@ -1,4 +1,16 @@
+# Portfolio de Markel Icedo
+# https://portfolio.markelicedo.site
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
 User-agent: *
 Allow: /
-Host: portfolio.markelicedo.site
+
+Host: https://portfolio.markelicedo.site
 Sitemap: https://portfolio.markelicedo.site/sitemap.xml
