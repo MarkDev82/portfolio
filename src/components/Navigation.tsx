@@ -11,11 +11,10 @@ export const Navigation = () => {
   const { personal } = portfolioData;
 
   const navItems = [
-    { name: 'Sobre mí', href: '#about' },
+    { name: 'Educación', href: '#education' },
     { name: 'Skills', href: '#skills' },
     { name: 'Proyectos', href: '#projects' },
     { name: 'Experiencia', href: '#experience' },
-    { name: 'Educación', href: '#education' },
     { name: 'Contacto', href: '#contact' },
   ];
 

@@ -25,8 +25,8 @@ export const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const scrollToAbout = () => {
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToEducation = () => {
+    document.getElementById('education')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const containerVariants = {
@@ -152,7 +152,7 @@ export const Hero = () => {
               variants={itemVariants}
             >
               <motion.button
-                onClick={scrollToAbout}
+                onClick={scrollToEducation}
                 className="group flex items-center gap-3 text-white border border-neutral-700 px-6 py-3.5 sm:px-7 sm:py-4 hover:border-white hover:bg-white hover:text-black transition-all duration-300"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}

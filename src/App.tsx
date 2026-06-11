@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
-import { About } from './components/About';
 import { Skills } from './components/Skills';
 import { Projects } from './components/Projects';
 import { Experience } from './components/Experience';
@@ -31,8 +30,8 @@ function App() {
               <Hero />
             </div>
             <SectionDivider />
-            <div id="about">
-              <About />
+            <div id="education">
+              <Education />
             </div>
             <SectionDivider />
             <div id="skills">
@@ -45,10 +44,6 @@ function App() {
             <SectionDivider />
             <div id="experience">
               <Experience />
-            </div>
-            <SectionDivider />
-            <div id="education">
-              <Education />
             </div>
             <SectionDivider />
             <div id="contact">
