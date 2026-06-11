@@ -12,21 +12,13 @@ import { Card } from './shared/Card';
 import { AnimatedSection } from './shared/AnimatedSection';
 import { portfolioData } from '../data/portfolio-data';
 
-export const Experience = () => {
-  const { experience } = portfolioData;
-  const [expandedJobs, setExpandedJobs] = useState<number[]>([]);
+const ExperienceCard = ({ job, index, isLast }: { job: any; index: number; isLast: boolean }) => {
+  const isOngoing = job.type === 'ongoing';
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const ExperienceCard = ({ job, index, isLast }: { job: any; index: number; isLast: boolean }) => {
-    const isOngoing = job.type === 'ongoing';
-    const isExpanded = expandedJobs.includes(job.id);
-
-    const toggleExpanded = () => {
-      setExpandedJobs(prev => 
-        prev.includes(job.id) 
-          ? prev.filter(id => id !== job.id)
-          : [...prev, job.id]
-      );
-    };
+  const toggleExpanded = () => {
+    setIsExpanded(prev => !prev);
+  };
 
     return (
       <motion.div 
@@ -221,6 +213,9 @@ export const Experience = () => {
       </motion.div>
     );
   };
+
+export const Experience = () => {
+  const { experience } = portfolioData;
 
   return (
     <section id="experience" className="py-28 sm:py-36 bg-surface-1">
