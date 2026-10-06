@@ -55,11 +55,11 @@ const ExperienceCard = ({ job, index, isLast }: { job: any; index: number; isLas
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-5">
               <div>
                 <div className="flex items-center gap-2.5 mb-2">
-                  <span className="font-mono text-[10px] text-neutral-700 tracking-wider">
+                  <span className="font-mono text-[10px] text-neutral-500 tracking-wider">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <span className="w-5 h-px bg-neutral-800" />
-                  <span className="font-mono text-[9px] text-neutral-600 uppercase tracking-[0.25em]">
+                  <span className="font-mono text-[9px] text-neutral-500 uppercase tracking-[0.25em]">
                     {job.period}
                   </span>
                 </div>
@@ -109,7 +109,7 @@ const ExperienceCard = ({ job, index, isLast }: { job: any; index: number; isLas
 
               {/* Technologies */}
               <div className="mb-7">
-                <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-4">Tecnologías</h4>
+                <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-500 mb-4">Tecnologías</h4>
                 <div className="flex flex-wrap gap-2">
                   {job.technologies.map((tech: string, i: number) => (
                     <motion.span
@@ -129,7 +129,7 @@ const ExperienceCard = ({ job, index, isLast }: { job: any; index: number; isLas
             {/* Job-specific Content */}
             {job.responsibilities && job.responsibilities.length > 0 && (
               <div className="mb-7">
-                <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-4">Responsabilidades</h4>
+                <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-500 mb-4">Responsabilidades</h4>
                 <div className="space-y-2.5">
                   {job.responsibilities.map((responsibility: string, i: number) => (
                     <motion.div
@@ -139,7 +139,7 @@ const ExperienceCard = ({ job, index, isLast }: { job: any; index: number; isLas
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.1 + i * 0.05, duration: 0.4 }}
                     >
-                      <span className="text-neutral-700 mt-1 text-xs">—</span>
+                      <span className="text-neutral-500 mt-1 text-xs">—</span>
                       <span className="text-neutral-400 text-sm leading-[1.7]">{responsibility}</span>
                     </motion.div>
                   ))}
@@ -149,7 +149,7 @@ const ExperienceCard = ({ job, index, isLast }: { job: any; index: number; isLas
 
             {job.achievements && job.achievements.length > 0 && (
               <div className="mb-7">
-                <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-4">Logros</h4>
+                <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-500 mb-4">Logros</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {job.achievements.map((achievement: any, i: number) => (
                     <motion.div
@@ -174,7 +174,7 @@ const ExperienceCard = ({ job, index, isLast }: { job: any; index: number; isLas
 
             {job.categories && job.categories.length > 0 && (
               <div className="mb-7">
-                <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-4">Tipos de bots</h4>
+                <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-500 mb-4">Tipos de bots</h4>
                 <div className="space-y-3">
                   {job.categories.map((category: any, i: number) => {
                     const icons: Record<string, any> = {
@@ -195,10 +195,10 @@ const ExperienceCard = ({ job, index, isLast }: { job: any; index: number; isLas
                         whileHover={{ x: 4 }}
                       >
                         <div className="flex items-center gap-3.5">
-                          <IconComponent className="w-4 h-4 text-neutral-600" />
+                          <IconComponent className="w-4 h-4 text-neutral-500" />
                           <div>
                             <h5 className="font-medium text-white text-sm">{category.name}</h5>
-                            <p className="text-neutral-600 text-xs font-mono mt-0.5">{category.platform}</p>
+                            <p className="text-neutral-500 text-xs font-mono mt-0.5">{category.platform}</p>
                           </div>
                         </div>
                       </motion.div>
@@ -224,7 +224,7 @@ export const Experience = () => {
         <AnimatedSection>
           <div className="mb-20 sm:mb-24">
             <motion.span 
-              className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-600 block mb-5"
+              className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-500 block mb-5"
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}

@@ -8,6 +8,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        neutral: { 500: '#8c8c8c' },
         surface: {
           0: '#000000',
           1: '#0a0a0a',

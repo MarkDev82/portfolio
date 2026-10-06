@@ -129,7 +129,7 @@ export const Skills = () => {
         <AnimatedSection>
           <div className="mb-14 sm:mb-16">
             <motion.span 
-              className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-600 block mb-5"
+              className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-500 block mb-5"
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
@@ -202,13 +202,13 @@ const FolderSection = ({ category, isOpen, onToggle }: { category: { title: stri
             <div className="text-white text-sm font-medium tracking-tight">
               {category.title}
             </div>
-            <div className="text-neutral-600 text-xs font-mono mt-1">
+            <div className="text-neutral-500 text-xs font-mono mt-1">
               {category.description}
             </div>
           </div>
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-neutral-600 text-[10px] font-mono">
+          <span className="text-neutral-500 text-[10px] font-mono">
             {category.items.length} items
           </span>
           <motion.span

@@ -90,7 +90,7 @@ export const Navigation = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              M<span className="text-neutral-600">.</span>I
+              M<span className="text-neutral-500">.</span>I
             </motion.button>
 
             {/* Desktop Navigation */}
@@ -128,7 +128,7 @@ export const Navigation = () => {
                 href={personal.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-neutral-600 hover:text-white transition-colors duration-300"
+                className="p-2 text-neutral-500 hover:text-white transition-colors duration-300"
                 aria-label="GitHub"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -139,7 +139,7 @@ export const Navigation = () => {
                 href={personal.linkedin || '#'}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-neutral-600 hover:text-white transition-colors duration-300"
+                className="p-2 text-neutral-500 hover:text-white transition-colors duration-300"
                 aria-label="LinkedIn"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -148,7 +148,7 @@ export const Navigation = () => {
               </motion.a>
               <motion.a
                 href={`mailto:${personal.email}`}
-                className="p-2 text-neutral-600 hover:text-white transition-colors duration-300"
+                className="p-2 text-neutral-500 hover:text-white transition-colors duration-300"
                 aria-label="Email"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -198,7 +198,7 @@ export const Navigation = () => {
                       exit={{ opacity: 0, x: -16 }}
                       transition={{ duration: 0.3, delay: index * 0.05, ease: [0.25, 0.1, 0.25, 1] }}
                     >
-                      <span className="font-mono text-[10px] text-neutral-700 mr-3">
+                      <span className="font-mono text-[10px] text-neutral-500 mr-3">
                         {String(index + 1).padStart(2, '0')}
                       </span>
                       {item.name}

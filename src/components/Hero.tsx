@@ -53,12 +53,14 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative h-screen flex items-end bg-black overflow-hidden">
-      {/* Pattern waves background — static (not pointer-reactive) */}
+    <section className="relative min-h-screen flex items-end bg-black overflow-hidden">
+      {/* Pattern waves background — subtle pointer ripple */}
       <div className="absolute inset-0" aria-hidden="true">
         <PatternWaves
           preset="mesh"
-          interactive={false}
+          interactive
+          cursorSize={60}
+          cursorStrength={0.5}
           color="#ffffff"
           backgroundColor="#000000"
           opacity={0.8}
@@ -80,7 +82,7 @@ export const Hero = () => {
         <Cross size={32} color="#404040" />
       </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full pb-16 sm:pb-20 lg:pb-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full pt-28 pb-16 sm:pb-20 lg:pb-24">
         <motion.div
           className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end"
           variants={containerVariants}
@@ -94,7 +96,7 @@ export const Hero = () => {
               className="mb-8 sm:mb-10"
               variants={itemVariants}
             >
-              <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-600">
+              <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-500">
                 Portfolio — {new Date().getFullYear()} · Getxo, ES
               </span>
             </motion.div>
@@ -113,7 +115,7 @@ export const Hero = () => {
                 {personal.name.split(' ')[0]}
               </motion.span>
               <motion.span 
-                className="block text-neutral-700"
+                className="block text-txt-tertiary"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
@@ -127,8 +129,8 @@ export const Hero = () => {
               className="mb-10 sm:mb-12 h-6"
               variants={itemVariants}
             >
-              <div className="font-mono text-xs sm:text-sm text-neutral-500 flex items-center">
-                <span className="text-neutral-700 mr-2 select-none">&gt;</span>
+              <div className="font-mono text-xs sm:text-sm text-neutral-400 flex items-center">
+                <span className="text-neutral-500 mr-2 select-none">&gt;</span>
                 <span>{typedTitle}</span>
                 <span className="typing-cursor ml-0.5 text-neutral-400 select-none">_</span>
               </div>
@@ -142,7 +144,7 @@ export const Hero = () => {
               <p className="text-neutral-400 text-base sm:text-lg leading-[1.7] mb-4">
                 {personal.hero.description}
               </p>
-              <p className="text-neutral-600 text-sm font-mono leading-relaxed">
+              <p className="text-neutral-500 text-sm font-mono leading-relaxed">
                 {personal.hero.tagline}
               </p>
             </motion.div>
@@ -171,7 +173,7 @@ export const Hero = () => {
                 href={personal.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-neutral-600 hover:text-white transition-colors duration-300"
+                className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-neutral-500 hover:text-white transition-colors duration-300"
                 whileHover={{ x: 2 }}
                 transition={{ duration: 0.2 }}
               >

@@ -23,7 +23,7 @@ export const Education = () => {
         <AnimatedSection>
           <div className="mb-20 sm:mb-24">
             <motion.span 
-              className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-600 block mb-5"
+              className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-500 block mb-5"
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
@@ -65,7 +65,7 @@ export const Education = () => {
           <AnimatedSection direction="left">
             <div className="space-y-5">
               <motion.h3 
-                className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-7"
+                className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-500 mb-7"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -116,12 +116,12 @@ export const Education = () => {
                 <Card className="p-7">
                   <div className="flex items-start">
                     <div className="w-11 h-11 bg-surface-4 border border-border flex items-center justify-center mr-5 flex-shrink-0">
-                      <CheckCircle2 className="w-4 h-4 text-neutral-600" />
+                      <CheckCircle2 className="w-4 h-4 text-neutral-500" />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-start justify-between mb-3 gap-4">
                         <h4 className="font-medium text-white text-base">{education.previous}</h4>
-                        <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 border border-border px-2.5 py-1 flex-shrink-0">
+                        <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-500 border border-border px-2.5 py-1 flex-shrink-0">
                           Completado
                         </span>
                       </div>
@@ -145,12 +145,12 @@ export const Education = () => {
                   <Card className="p-7">
                     <div className="flex items-start">
                       <div className="w-11 h-11 bg-surface-4 border border-border flex items-center justify-center mr-5 flex-shrink-0">
-                        <CheckCircle2 className="w-4 h-4 text-neutral-600" />
+                        <CheckCircle2 className="w-4 h-4 text-neutral-500" />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-start justify-between mb-3 gap-4">
                           <h4 className="font-medium text-white text-base">{cert.name}</h4>
-                          <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 border border-border px-2.5 py-1 flex-shrink-0">
+                          <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-500 border border-border px-2.5 py-1 flex-shrink-0">
                             {cert.year}
                           </span>
                         </div>
@@ -169,7 +169,7 @@ export const Education = () => {
           <AnimatedSection direction="right">
             <div className="space-y-5">
               <motion.h3 
-                className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-7"
+                className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-500 mb-7"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -201,11 +201,11 @@ export const Education = () => {
                     <Card className="p-6">
                       <div className="flex items-center gap-4">
                         <div className="w-9 h-9 bg-surface-4 border border-border flex items-center justify-center flex-shrink-0">
-                          <Award className="w-3.5 h-3.5 text-neutral-600" />
+                          <Award className="w-3.5 h-3.5 text-neutral-500" />
                         </div>
                         <div>
                           <h4 className="font-medium text-white text-sm">{cert.name}</h4>
-                          <p className="text-neutral-600 text-xs font-mono mt-0.5">{cert.year}</p>
+                          <p className="text-neutral-500 text-xs font-mono mt-0.5">{cert.year}</p>
                         </div>
                       </div>
                     </Card>
@@ -231,11 +231,11 @@ export const Education = () => {
                     <Card className="p-6">
                       <div className="flex items-center gap-4">
                         <div className="w-9 h-9 bg-surface-4 border border-border flex items-center justify-center flex-shrink-0">
-                          <Star className="w-3.5 h-3.5 text-neutral-600" />
+                          <Star className="w-3.5 h-3.5 text-neutral-500" />
                         </div>
                         <div>
                           <h4 className="font-medium text-white text-sm">{education.certifications.longTerm}</h4>
-                          <p className="text-neutral-600 text-xs font-mono mt-0.5">Opciones para el futuro</p>
+                          <p className="text-neutral-500 text-xs font-mono mt-0.5">Opciones para el futuro</p>
                         </div>
                       </div>
                     </Card>

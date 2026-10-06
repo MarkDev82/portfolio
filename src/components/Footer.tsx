@@ -84,12 +84,12 @@ export const Footer = () => {
                 transition={{ duration: 0.2 }}
               >
                 {personal.name.split(' ')[0]}
-                <span className="text-neutral-700">.{personal.name.split(' ')[1]}</span>
+                <span className="text-neutral-500">.{personal.name.split(' ')[1]}</span>
               </motion.button>
-              <p className="text-neutral-600 text-sm mb-5 max-w-md leading-[1.7]">
+              <p className="text-neutral-500 text-sm mb-5 max-w-md leading-[1.7]">
                 Estudiante de ASIR. Desarrollo web, automatización y bots.
               </p>
-              <div className="flex items-center gap-2.5 text-neutral-700 text-xs font-mono">
+              <div className="flex items-center gap-2.5 text-neutral-500 text-xs font-mono">
                 <MapPin className="w-3 h-3" />
                 <span>{personal.location}</span>
               </div>
@@ -98,7 +98,7 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <motion.div variants={itemVariants}>
-            <h3 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-5">Enlaces</h3>
+            <h3 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-500 mb-5">Enlaces</h3>
             <ul className="space-y-2.5">
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -117,7 +117,7 @@ export const Footer = () => {
 
           {/* Contact & Social */}
           <motion.div variants={itemVariants}>
-            <h3 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-5">Conecta</h3>
+            <h3 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-500 mb-5">Conecta</h3>
             
             <div className="flex gap-2.5 mb-5">
               {socialLinks.filter(social => social.href).map((social, index) => {
@@ -126,9 +126,10 @@ export const Footer = () => {
                   <motion.a
                     key={index}
                     href={social.href}
+                    aria-label={social.name}
                     target={social.href.startsWith('http') ? '_blank' : '_self'}
                     rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="text-neutral-600 hover:text-white transition-colors duration-300 p-2.5 border border-neutral-900 hover:border-neutral-700"
+                    className="text-neutral-500 hover:text-white transition-colors duration-300 p-2.5 border border-neutral-900 hover:border-neutral-700"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ duration: 0.2 }}
@@ -158,7 +159,7 @@ export const Footer = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <span className="text-neutral-700 text-xs font-mono">
+          <span className="text-neutral-500 text-xs font-mono">
             © {currentYear} {personal.name}. Todos los derechos reservados.
           </span>
         </motion.div>

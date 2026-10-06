@@ -66,11 +66,11 @@ export const Projects = () => {
             <div className="flex items-start justify-between mb-5">
               <div>
                 <div className="flex items-center gap-2.5 mb-3">
-                  <span className="font-mono text-[10px] text-neutral-700 tracking-wider">
+                  <span className="font-mono text-[10px] text-neutral-500 tracking-wider">
                     {String(project.id).padStart(2, '0')}
                   </span>
                   <span className="w-5 h-px bg-neutral-800" />
-                  <span className="font-mono text-[9px] text-neutral-600 uppercase tracking-[0.25em]">
+                  <span className="font-mono text-[9px] text-neutral-500 uppercase tracking-[0.25em]">
                     {complexityLabels[project.complexity]}
                   </span>
                 </div>
@@ -94,7 +94,7 @@ export const Projects = () => {
 
             {/* Features */}
             <div className="mb-6">
-              <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-4">Features</h4>
+              <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-500 mb-4">Features</h4>
               <div className="space-y-2">
                 {project.features.map((feature: string, i: number) => (
                   <motion.div
@@ -105,7 +105,7 @@ export const Projects = () => {
                     transition={{ delay: 0.2 + i * 0.05, duration: 0.4 }}
                     viewport={{ once: true }}
                   >
-                    <span className="text-neutral-700 mt-1 text-xs">—</span>
+                    <span className="text-neutral-500 mt-1 text-xs">—</span>
                     <span className="text-neutral-400 text-sm leading-[1.7]">{feature}</span>
                   </motion.div>
                 ))}
@@ -147,7 +147,7 @@ export const Projects = () => {
         <AnimatedSection>
           <div className="mb-20 sm:mb-24">
             <motion.span 
-              className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-600 block mb-5"
+              className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-500 block mb-5"
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
@@ -198,7 +198,7 @@ export const Projects = () => {
                   className={`relative flex items-center gap-2.5 px-5 py-3.5 font-mono text-[10px] uppercase tracking-[0.25em] transition-colors duration-300 ${
                     isActive
                       ? 'text-white'
-                      : 'text-neutral-600 hover:text-neutral-300'
+                      : 'text-neutral-500 hover:text-neutral-300'
                   }`}
                   whileHover={{ y: -1 }}
                   whileTap={{ y: 0 }}
@@ -207,7 +207,7 @@ export const Projects = () => {
                   <IconComponent className="w-3.5 h-3.5" />
                   <span>{category.label}</span>
                   {category.key === 'all' && (
-                    <span className="ml-1.5 text-[9px] text-neutral-700">
+                    <span className="ml-1.5 text-[9px] text-neutral-500">
                       ({projects.length})
                     </span>
                   )}

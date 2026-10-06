@@ -19,7 +19,7 @@ export const Contact = () => {
         <AnimatedSection>
           <div className="mb-20 sm:mb-24">
             <motion.span 
-              className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-600 block mb-5"
+              className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-500 block mb-5"
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
@@ -72,8 +72,8 @@ export const Contact = () => {
               transition={{ duration: 0.3 }}
             >
               <div className="flex items-baseline gap-3 mb-3">
-                <Mail className="w-4 h-4 text-neutral-700" />
-                <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-neutral-700">Email</span>
+                <Mail className="w-4 h-4 text-neutral-500" />
+                <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-neutral-500">Email</span>
               </div>
               <div className="flex items-center gap-5">
                 <span className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight group-hover:text-neutral-300 transition-colors duration-300 break-all">
@@ -83,10 +83,10 @@ export const Contact = () => {
                   whileHover={{ x: 2, y: -2 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-700 group-hover:text-white transition-colors duration-300 flex-shrink-0 mt-1" />
+                  <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-500 group-hover:text-white transition-colors duration-300 flex-shrink-0 mt-1" />
                 </motion.div>
               </div>
-              <p className="mt-3 text-neutral-700 text-xs font-mono">Respuesta en 24-48 horas</p>
+              <p className="mt-3 text-neutral-500 text-xs font-mono">Respuesta en 24-48 horas</p>
             </motion.a>
           </motion.div>
 
@@ -109,7 +109,7 @@ export const Contact = () => {
                   whileHover={{ rotate: 10, scale: 1.1 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Github className="w-5 h-5 text-neutral-700 group-hover:text-white transition-colors duration-300" />
+                  <Github className="w-5 h-5 text-neutral-500 group-hover:text-white transition-colors duration-300" />
                 </motion.div>
                 <motion.div
                   whileHover={{ x: 2, y: -2 }}
@@ -118,11 +118,11 @@ export const Contact = () => {
                   <ArrowUpRight className="w-4 h-4 text-neutral-800 group-hover:text-white transition-colors duration-300" />
                 </motion.div>
               </div>
-              <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-neutral-700 block mb-3">GitHub</span>
+              <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-neutral-500 block mb-3">GitHub</span>
               <span className="font-display text-xl sm:text-2xl font-semibold text-white group-hover:text-neutral-300 transition-colors duration-300 tracking-tight">
                 @MarkDev82
               </span>
-              <p className="mt-3 text-neutral-700 text-xs leading-[1.6]">Revisa mi código y proyectos</p>
+              <p className="mt-3 text-neutral-500 text-xs leading-[1.6]">Revisa mi código y proyectos</p>
             </motion.a>
 
             {/* LinkedIn */}
@@ -142,7 +142,7 @@ export const Contact = () => {
                   whileHover={{ rotate: 10, scale: 1.1 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Linkedin className="w-5 h-5 text-neutral-700 group-hover:text-white transition-colors duration-300" />
+                  <Linkedin className="w-5 h-5 text-neutral-500 group-hover:text-white transition-colors duration-300" />
                 </motion.div>
                 <motion.div
                   whileHover={{ x: 2, y: -2 }}
@@ -151,11 +151,11 @@ export const Contact = () => {
                   <ArrowUpRight className="w-4 h-4 text-neutral-800 group-hover:text-white transition-colors duration-300" />
                 </motion.div>
               </div>
-              <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-neutral-700 block mb-3">LinkedIn</span>
+              <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-neutral-500 block mb-3">LinkedIn</span>
               <span className="font-display text-xl sm:text-2xl font-semibold text-white group-hover:text-neutral-300 transition-colors duration-300 tracking-tight">
                 Markel Icedo
               </span>
-              <p className="mt-3 text-neutral-700 text-xs leading-[1.6]">Conexión profesional</p>
+              <p className="mt-3 text-neutral-500 text-xs leading-[1.6]">Conexión profesional</p>
             </motion.a>
           </div>
 
@@ -171,7 +171,7 @@ export const Contact = () => {
               <MapPin className="w-4 h-4 text-neutral-800" />
               <div>
                 <span className="text-neutral-400 text-sm">{personal.location}</span>
-                <p className="text-neutral-700 text-xs font-mono mt-1">Disponible para trabajo remoto</p>
+                <p className="text-neutral-500 text-xs font-mono mt-1">Disponible para trabajo remoto</p>
               </div>
             </div>
 

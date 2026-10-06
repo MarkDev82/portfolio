@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, MotionConfig } from 'framer-motion';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { Skills } from './components/Skills';
@@ -15,6 +15,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="App bg-black text-white min-h-screen">
       <AnimatePresence mode="wait">
         {isLoading && (
@@ -24,8 +25,14 @@ function App() {
       
       {!isLoading && (
         <>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[110] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:uppercase focus:tracking-widest"
+          >
+            Saltar al contenido
+          </a>
           <Navigation />
-          <main>
+          <main id="main">
             <div id="hero">
               <Hero />
             </div>
@@ -54,6 +61,7 @@ function App() {
         </>
       )}
     </div>
+    </MotionConfig>
   );
 }
 

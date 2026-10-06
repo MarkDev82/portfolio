@@ -82,7 +82,7 @@ export const About = () => {
         <AnimatedSection>
           <div className="mb-20 sm:mb-24">
             <motion.span 
-              className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-600 block mb-5"
+              className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-500 block mb-5"
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
@@ -141,10 +141,10 @@ export const About = () => {
                           whileHover={{ rotate: 5, scale: 1.1 }}
                           transition={{ duration: 0.2 }}
                         >
-                          <IconComponent className="w-4 h-4 text-neutral-600 group-hover:text-neutral-400 transition-colors duration-300" />
+                          <IconComponent className="w-4 h-4 text-neutral-500 group-hover:text-neutral-400 transition-colors duration-300" />
                           <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 blur-md rounded-full scale-150 transition-all duration-300" />
                         </motion.div>
-                        <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 group-hover:text-neutral-400 transition-colors duration-300">{card.title}</span>
+                        <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-500 group-hover:text-neutral-400 transition-colors duration-300">{card.title}</span>
                       </div>
                       <p className="text-neutral-300 text-sm leading-[1.7]">{card.content}</p>
                     </Card>
@@ -168,10 +168,10 @@ export const About = () => {
                   <Card className="p-7 group">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="relative">
-                        <Target className="w-4 h-4 text-neutral-600 group-hover:text-neutral-400 transition-colors duration-300" />
+                        <Target className="w-4 h-4 text-neutral-500 group-hover:text-neutral-400 transition-colors duration-300" />
                         <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 blur-md rounded-full scale-150 transition-all duration-300" />
                       </div>
-                      <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 group-hover:text-neutral-400 transition-colors duration-300">Objetivos Profesionales</span>
+                      <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-500 group-hover:text-neutral-400 transition-colors duration-300">Objetivos Profesionales</span>
                     </div>
                     {education.goals.professional && (
                       <p className="text-neutral-400 mb-5 text-sm leading-[1.7]">{education.goals.professional}</p>
@@ -199,14 +199,14 @@ export const About = () => {
               <Card className="p-7 group">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="relative">
-                    <GraduationCap className="w-4 h-4 text-neutral-600 group-hover:text-neutral-400 transition-colors duration-300" />
+                    <GraduationCap className="w-4 h-4 text-neutral-500 group-hover:text-neutral-400 transition-colors duration-300" />
                     <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 blur-md rounded-full scale-150 transition-all duration-300" />
                   </div>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 group-hover:text-neutral-400 transition-colors duration-300">Certificaciones Planificadas</span>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-500 group-hover:text-neutral-400 transition-colors duration-300">Certificaciones Planificadas</span>
                 </div>
                 
                 <div className="space-y-4">
-                  <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mb-4">Próximas certificaciones (2025)</h4>
+                  <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-500 mb-4">Próximas certificaciones (2025)</h4>
                   {education.certifications.planned.map((cert, index) => (
                     <motion.div
                       key={index}
@@ -222,14 +222,14 @@ export const About = () => {
                       }}
                     >
                       <div className="relative">
-                        <Award className="w-3.5 h-3.5 text-neutral-600 group-hover/item:text-neutral-400 transition-colors duration-300" />
+                        <Award className="w-3.5 h-3.5 text-neutral-500 group-hover/item:text-neutral-400 transition-colors duration-300" />
                         <div className="absolute inset-0 bg-white/0 group-hover/item:bg-white/10 blur-sm rounded-full scale-150 transition-all duration-300" />
                       </div>
                       <span className="text-sm text-neutral-300 group-hover/item:text-neutral-100 transition-colors duration-300">{cert.name} ({cert.year})</span>
                     </motion.div>
                   ))}
                   
-                  <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600 mt-6 mb-4">Objetivos futuros</h4>
+                  <h4 className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-500 mt-6 mb-4">Objetivos futuros</h4>
                   <motion.div
                     className="flex items-center gap-3 p-4 bg-surface-3 border border-border group/item"
                     initial={{ opacity: 0, x: -8 }}
@@ -243,7 +243,7 @@ export const About = () => {
                     }}
                   >
                     <div className="relative">
-                      <Star className="w-3.5 h-3.5 text-neutral-600 group-hover/item:text-neutral-400 transition-colors duration-300" />
+                      <Star className="w-3.5 h-3.5 text-neutral-500 group-hover/item:text-neutral-400 transition-colors duration-300" />
                       <div className="absolute inset-0 bg-white/0 group-hover/item:bg-white/10 blur-sm rounded-full scale-150 transition-all duration-300" />
                     </div>
                     <span className="text-sm text-neutral-300 group-hover/item:text-neutral-100 transition-colors duration-300">{education.certifications.longTerm}</span>
