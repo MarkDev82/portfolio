@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import { useTypingEffect } from '../hooks/useTypingEffect';
 import { portfolioData } from '../data/portfolio-data';
-import { StarField } from './shared/StarField';
+import PatternWaves from './shared/PatternWaves';
 import { Cross } from './shared/Cross';
 
 export const Hero = () => {
@@ -54,20 +54,21 @@ export const Hero = () => {
 
   return (
     <section className="relative h-screen flex items-end bg-black overflow-hidden">
-      {/* Star field background */}
-      <StarField count={60} />
-      
-      {/* Subtle grid pattern */}
-      <motion.div 
-        className="absolute inset-0 opacity-[0.015]"
-        style={{
-          backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)',
-          backgroundSize: '100px 100px'
-        }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.015 }}
-        transition={{ duration: 1, delay: 0.3 }}
-      />
+      {/* Pattern waves background — static (not pointer-reactive) */}
+      <div className="absolute inset-0" aria-hidden="true">
+        <PatternWaves
+          preset="mesh"
+          interactive={false}
+          color="#ffffff"
+          backgroundColor="#000000"
+          opacity={0.8}
+          fade="none"
+          speed={0.3}
+        />
+        {/* Legibility veil: keeps the text zone dark, lets waves breathe on the right/top */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/35 to-transparent" />
+      </div>
 
       {/* Decorative cross - top right corner */}
       <motion.div
@@ -87,14 +88,14 @@ export const Hero = () => {
           animate="visible"
         >
           {/* Left: Main content */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-12">
             {/* Top label */}
             <motion.div
               className="mb-8 sm:mb-10"
               variants={itemVariants}
             >
               <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-600">
-                Portfolio — {new Date().getFullYear()}
+                Portfolio — {new Date().getFullYear()} · Getxo, ES
               </span>
             </motion.div>
 
@@ -178,41 +179,6 @@ export const Hero = () => {
               </motion.a>
             </motion.div>
           </div>
-
-          {/* Right: Photo — secondary element, architectural */}
-          <motion.div
-            className="lg:col-span-4 hidden sm:block"
-            initial={{ opacity: 0, y: 20, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-          >
-            <div className="relative">
-              {/* Photo container with mask reveal */}
-              <motion.div 
-                className="w-full aspect-[3/4] max-w-[300px] lg:max-w-[340px] ml-auto overflow-hidden grayscale border border-neutral-800"
-                initial={{ clipPath: 'inset(100% 0 0 0)' }}
-                animate={{ clipPath: 'inset(0% 0 0 0)' }}
-                transition={{ duration: 0.8, delay: 0.6, ease: [0.76, 0, 0.24, 1] }}
-              >
-                <img
-                  src="/images/FotoPersonal.png"
-                  alt="Markel Icedo"
-                  className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-700"
-                />
-              </motion.div>
-              {/* Subtle label under photo */}
-              <motion.div 
-                className="mt-4 text-right"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1 }}
-              >
-                <span className="font-mono text-[9px] tracking-[0.35em] uppercase text-neutral-700">
-                  Getxo, ES
-                </span>
-              </motion.div>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
 
