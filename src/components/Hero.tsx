@@ -88,7 +88,7 @@ export const Hero = () => {
         <Cross size={32} color="#404040" />
       </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full pt-28 pb-16 sm:pb-20 lg:pb-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full pt-28 pb-20 sm:pb-28 lg:pb-36">
         <motion.div
           className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end"
           variants={containerVariants}
