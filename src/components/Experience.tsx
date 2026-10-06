@@ -219,7 +219,7 @@ export const Experience = () => {
 
   return (
     <section id="experience" className="py-28 sm:py-36 bg-black">
-      <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section header */}
         <AnimatedSection>
           <div className="mb-20 sm:mb-24">
@@ -262,7 +262,7 @@ export const Experience = () => {
         </AnimatedSection>
 
         {/* Experience Timeline */}
-        <div className="relative">
+        <div className="relative max-w-4xl">
           {experience.map((job, index) => (
             <ExperienceCard
               key={job.id}

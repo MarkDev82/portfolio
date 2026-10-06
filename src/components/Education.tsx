@@ -8,6 +8,7 @@ import {
 import { Card } from './shared/Card';
 import { AnimatedSection } from './shared/AnimatedSection';
 import { StarField } from './shared/StarField';
+import { Cross } from './shared/Cross';
 import { portfolioData } from '../data/portfolio-data';
 
 export const Education = () => {
@@ -18,7 +19,7 @@ export const Education = () => {
       {/* Subtle star field */}
       <StarField count={25} />
       
-      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section header */}
         <AnimatedSection>
           <div className="mb-20 sm:mb-24">
@@ -63,9 +64,9 @@ export const Education = () => {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20">
           {/* Education Timeline */}
           <AnimatedSection direction="left">
-            <div className="space-y-5">
+            <div className="space-y-5 relative lg:pl-9">
               <motion.h3 
-                className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-500 mb-7"
+                className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-500 mb-7"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -76,11 +77,13 @@ export const Education = () => {
               
               {/* Current Education */}
               <motion.div
+                className="relative"
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.15 }}
                 viewport={{ once: true }}
               >
+                <span aria-hidden="true" className="hidden lg:block absolute left-[-36px] top-8 bg-black py-1"><Cross size={14} color="#ffffff" /></span>
                 <Card className="p-7 border-neutral-700">
                   <div className="flex items-start">
                     <motion.div 
@@ -108,11 +111,13 @@ export const Education = () => {
 
               {/* Previous Education */}
               <motion.div
+                className="relative"
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.25 }}
                 viewport={{ once: true }}
               >
+                <span aria-hidden="true" className="hidden lg:block absolute left-[-36px] top-8 bg-black py-1"><Cross size={14} color="#737373" /></span>
                 <Card className="p-7">
                   <div className="flex items-start">
                     <div className="w-11 h-11 bg-surface-4 border border-border flex items-center justify-center mr-5 flex-shrink-0">
@@ -136,12 +141,14 @@ export const Education = () => {
               {/* Completed Certifications */}
               {education.certifications.completed.map((cert, index) => (
                 <motion.div
+                className="relative"
                   key={`completed-${index}`}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.35 + index * 0.1 }}
                   viewport={{ once: true }}
                 >
+                <span aria-hidden="true" className="hidden lg:block absolute left-[-36px] top-8 bg-black py-1"><Cross size={14} color="#737373" /></span>
                   <Card className="p-7">
                     <div className="flex items-start">
                       <div className="w-11 h-11 bg-surface-4 border border-border flex items-center justify-center mr-5 flex-shrink-0">
@@ -162,6 +169,7 @@ export const Education = () => {
                   </Card>
                 </motion.div>
               ))}
+              <div aria-hidden="true" className="hidden lg:block absolute left-[7px] top-16 bottom-8 w-px bg-neutral-800" />
             </div>
           </AnimatedSection>
 
@@ -187,7 +195,7 @@ export const Education = () => {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  Próximas Certificaciones (2025)
+                  Próximas certificaciones
                 </motion.h4>
                 {education.certifications.planned.map((cert, index) => (
                   <motion.div
