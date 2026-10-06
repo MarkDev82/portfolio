@@ -73,9 +73,9 @@ export const Navigation = () => {
       <motion.nav
         className="fixed top-0 left-0 right-0 z-50"
         style={{
-          backgroundColor: `rgba(0, 0, 0, ${scrollProgress * 0.9})`,
-          backdropFilter: `blur(${scrollProgress * 12}px)`,
-          borderBottom: `1px solid rgba(38, 38, 38, ${scrollProgress})`
+          backgroundColor: `rgba(0, 0, 0, ${0.55 + scrollProgress * 0.35})`,
+          backdropFilter: `blur(${8 + scrollProgress * 4}px)`,
+          borderBottom: `1px solid rgba(38, 38, 38, ${0.6 + scrollProgress * 0.4})`
         }}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -101,10 +101,10 @@ export const Navigation = () => {
                   <motion.button
                     key={item.name}
                     onClick={() => scrollToSection(item.href)}
-                    className={`relative text-[11px] font-medium tracking-wide transition-colors duration-300 ${
+                    className={`relative text-xs font-medium tracking-wide transition-colors duration-300 ${
                       isActive
                         ? 'text-white'
-                        : 'text-neutral-500 hover:text-neutral-200'
+                        : 'text-neutral-400 hover:text-white'
                     }`}
                     whileHover={{ y: -1 }}
                     transition={{ duration: 0.2 }}

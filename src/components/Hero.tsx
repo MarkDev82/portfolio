@@ -7,7 +7,13 @@ import PatternWaves from './shared/PatternWaves';
 import { Cross } from './shared/Cross';
 
 export const Hero = () => {
-  const { personal } = portfolioData;
+  const { personal, skills } = portfolioData;
+  const profileFacts = [
+    { label: 'Ubicación', value: 'Getxo, Euskadi' },
+    { label: 'Formación', value: 'ASIR · En curso' },
+    { label: 'Stack', value: skills.languages.filter(l => l.level !== 'basic').slice(0, 4).map(l => l.name).join(' · ') },
+    { label: 'Estado', value: 'Abierto a oportunidades' },
+  ];
   const [showElements, setShowElements] = useState(false);
   
   const { displayText: typedTitle } = useTypingEffect(
@@ -74,7 +80,7 @@ export const Hero = () => {
 
       {/* Decorative cross - top right corner */}
       <motion.div
-        className="absolute top-24 right-12 hidden lg:block"
+        className="absolute top-24 right-12 hidden xl:block"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.8 }}
@@ -89,21 +95,21 @@ export const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* Left: Main content */}
-          <div className="lg:col-span-12">
+          {/* Left: identity */}
+          <div className="lg:col-span-7">
             {/* Top label */}
             <motion.div
               className="mb-8 sm:mb-10"
               variants={itemVariants}
             >
               <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-neutral-500">
-                Portfolio — {new Date().getFullYear()} · Getxo, ES
+                Portfolio — {new Date().getFullYear()}
               </span>
             </motion.div>
 
             {/* Name — maximum typographic weight */}
             <motion.h1 
-              className="font-display text-[4rem] sm:text-[5.5rem] md:text-[7.5rem] lg:text-[9rem] xl:text-[11rem] font-bold text-white leading-[0.85] tracking-[-0.04em] mb-10 sm:mb-12"
+              className="font-display text-[4rem] sm:text-[5.5rem] md:text-[7.5rem] lg:text-[8rem] xl:text-[10rem] font-bold text-white leading-[0.85] tracking-[-0.04em] mb-10 sm:mb-12"
               variants={itemVariants}
             >
               <motion.span 
@@ -136,19 +142,6 @@ export const Hero = () => {
               </div>
             </motion.div>
 
-            {/* Description */}
-            <motion.div
-              className="max-w-xl mb-12 sm:mb-14"
-              variants={itemVariants}
-            >
-              <p className="text-neutral-400 text-base sm:text-lg leading-[1.7] mb-4">
-                {personal.hero.description}
-              </p>
-              <p className="text-neutral-500 text-sm font-mono leading-relaxed">
-                {personal.hero.tagline}
-              </p>
-            </motion.div>
-
             {/* CTA */}
             <motion.div
               className="flex items-center gap-6 sm:gap-10"
@@ -156,7 +149,7 @@ export const Hero = () => {
             >
               <motion.button
                 onClick={scrollToEducation}
-                className="group flex items-center gap-3 text-white border border-neutral-700 px-6 py-3.5 sm:px-7 sm:py-4 hover:border-white hover:bg-white hover:text-black transition-all duration-300"
+                className="group flex items-center gap-3 text-white border border-neutral-600 bg-black/40 px-6 py-3.5 sm:px-7 sm:py-4 hover:border-white hover:bg-white hover:text-black transition-all duration-300"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -173,7 +166,7 @@ export const Hero = () => {
                 href={personal.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-neutral-500 hover:text-white transition-colors duration-300"
+                className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-neutral-400 hover:text-white transition-colors duration-300"
                 whileHover={{ x: 2 }}
                 transition={{ duration: 0.2 }}
               >
@@ -181,6 +174,33 @@ export const Hero = () => {
               </motion.a>
             </motion.div>
           </div>
+
+          {/* Right: profile panel */}
+          <motion.aside
+            className="lg:col-span-5 lg:border-l border-neutral-800 lg:pl-8 lg:bg-black/50 lg:backdrop-blur-sm lg:py-8 lg:pr-6"
+            variants={itemVariants}
+          >
+            <p className="text-neutral-300 text-base leading-[1.7] mb-4">
+              {personal.hero.description}
+            </p>
+            <p className="text-neutral-400 text-sm font-mono leading-relaxed mb-8">
+              {personal.hero.tagline}
+            </p>
+
+            <dl className="border-t border-neutral-800">
+              {profileFacts.map((fact) => (
+                <div
+                  key={fact.label}
+                  className="flex items-baseline justify-between gap-6 py-3 border-b border-neutral-800"
+                >
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.3em] text-neutral-500 shrink-0">
+                    {fact.label}
+                  </dt>
+                  <dd className="text-sm text-neutral-300 text-right">{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </motion.aside>
         </motion.div>
       </div>
 
